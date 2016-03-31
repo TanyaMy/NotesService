@@ -1,0 +1,49 @@
+
+<html>
+    <head>
+        <link href="styles.css" rel="stylesheet" type="text/css">
+        <title>Registr</title>
+        <meta charset="UTF-8">
+    </head>
+    
+    <body>
+     <div id="all">
+        <div id = "register">
+        <form action="register.php" method="post" name="r_form" >
+            <table align = "center" cellspacing="" cellpadding="3" class = "table">   
+                <tr align = "center"><td><h1>Sign up</h1></td></tr>
+             <tr>
+              <td><h3>Login or e-mail:</h3> </td>
+              <td> <input type="text" class = "input" name="login" required=" " pattern = "^[a-zA-Z][a-zA-Z0-9-_\.]{7,15}$"/> </td>
+             </tr>
+             <tr>
+              <td> <h3>Password:</h3> </td>
+              <td> <input type="password" name="password" class = "input"  required=" " /> </td>
+             </tr>
+             <tr>
+              <td colspan="2"> <input type="submit"  class="button" name="r_send" value="Sign up" /> </td>
+             </tr>
+            </table>
+        </form>
+        </div>
+        <div id = "login">
+        <form action="login.php" method="post" name="l_form" >
+            <table align = "center" cellspacing="" cellpadding="3">
+                <tr align = "center"><td><h1>Log in</td></h1><tr>
+             <tr>
+              <td> <h3>Login or e-mail:</h3> </td>
+              <td> <input type="text" name="login" required=" " class = "input"  pattern = "^[a-zA-Z][a-zA-Z0-9-_\.]{7,15}$" /> </td>
+             </tr>
+             <tr>
+              <td> <h3>Password:</h3> </td>
+              <td> <input type="password" name="password" class = "input"  required=" " /> </td>
+             </tr>
+             <tr>
+              <td colspan="2"> <input type="submit"  class="button" name="l_send" value="Log in" /> </td>
+             </tr>
+            </table>
+        </form>
+        </div>
+      </div>        
+    </body>
+</html>

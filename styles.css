@@ -1,0 +1,42 @@
+body, html {
+margin:0px;
+padding:0px;
+ background-image: url(note.png);
+}
+#all {
+width:650px;
+height: 300px;
+margin:0 auto;
+}
+
+#register{
+width:100%;
+
+}
+
+.table{
+    margin-top: 100px;
+}
+
+#login{
+width:100%;
+}
+
+.button{
+    width: 160px;
+    height: 28px;    
+    text-align: center;
+    border-radius:50px;
+    background-color: peachpuff;
+    border-color: blue;
+}
+
+
+
+
+
+.input{
+     background-color: skyblue;
+      width: 200px;
+      height: 25px;
+}
