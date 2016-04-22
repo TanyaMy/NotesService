@@ -1,13 +1,13 @@
 <html>
     <head>
         <link href="styles.css" rel="stylesheet" type="text/css">
-        <title>Registr</title>
+        <title>New Note</title>
         <meta charset="UTF-8">
     </head>
     
     <body>
 <form action="calendar.php" method="post" name="r_form" >
-       <table align = "center" cellspacing="" cellpadding="3" class = "table">   
+    <table align = "center" cellspacing="" cellpadding="3" class = "table">   
      <tr align = "center"><td><h1> New note</h1></td></tr>
    <tr>
     <td><h3>Title:</h3> </td>
@@ -22,8 +22,11 @@
     <td> <input type="date" name="datetime" class = "input"  /> </td>
    </tr>
    <tr>
-    <td colspan="2" height = "100"> <input type="submit"  class="button" name="r_send" value="Add" /> </td>
-       <td colspan="2" height = "100"> <input type="reset"  class="button" name="r_reset" value="Reset" /> </td>
+    <td colspan="2" height = "50"> <input type="submit"  class="button" name="r_send" value="Add" /> </td>
+       <td colspan="2" height = "50"> <input type="reset"  class="button" name="r_reset" value="Reset" /> </td>
+   </tr>
+     <tr>   
+       <td  align = "center" colspan="4" height = "50"> <input type="button"  class="button" onClick='location.href="tabl_cal.php"' value="Back" />        </td>
    </tr>
   </table>
   

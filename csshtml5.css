@@ -1,0 +1,55 @@
+body, html {
+    margin: 20px;
+    padding: 20px;
+    background-image: url(fon.jpg);
+}
+
+#header{
+	border:2px solid;
+    border-radius:25px;
+    margin:10px;
+    padding:0px;	
+    height:120px;
+    background-color:#80ef91;
+}
+
+
+#main{
+	border:2px solid;
+    border-radius:25px;
+    margin:10px;
+    padding:0px;	
+    height:800px;
+    background-color:#80ef95;
+}
+
+#article{
+	border:2px solid;
+    border-radius:25px;
+    margin:10px;
+    padding:0px;	
+    height:900px;
+    width: 70%;
+    height:750px;
+    background-color:rgba(240, 232, 27, 0.76);
+    float: left;
+}
+
+
+#aside{
+	border:2px solid;
+    border-radius:25px;
+    margin:10px;
+    padding:0px;	
+    height:750px;
+    width:25%;
+    background-color:rgba(221, 65, 89, 0.76);
+    float: right;
+        
+}
+
+h2{
+    color: #003986;
+    text-align: center;
+}
+

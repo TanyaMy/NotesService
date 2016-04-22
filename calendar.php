@@ -1,57 +1,16 @@
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Calendar&Notes</title>
-        
-    </head>
-    
-    <body bgcolor = "#FFFFE0">
-       
-            <h1>Март 2016</h1>
-    <table border ="1">              
-                
-        <?php 
-        @session_start(); 
-        echo "Hello, ".$_SESSION["session_login"]."!<p></p>";
-        $i = -7;
-        $days = array(
-            -7 => "Пн",
-            -6 => "Вт",
-            -5 => "Ср",
-            -4 => "Чт",
-            -3 => "Пт",
-            -2 => "Сб",
-            -1 => "Вс",
-        );
-        while ( $i < 32){
-            while ( $i < 0)
-            {
-                 echo "<td>".$days[$i]."</td>";
-                 $i++;
-            }
-                        if ( $i %7 == 0)
-                        {
-                            echo "<tr>".PHP_EOL;
-                        }
-                        if ( $i == 0)
-                            echo "<td>"."</td>".PHP_EOL;
-                        else
-                        echo "<td>".$i."</td>".PHP_EOL;
-                        $i++;
-                        if ( $i %7 == 0)
-                        {
-                            echo "</tr>".PHP_EOL;
-                        }
-            }
-        ?>
-        <table/>
-              <a href="newNote.html">Добавить заметки</a>
-       <p></p>
-       <a href="form.html">Log out</a>
-          
-        
-    <?php
-    session_start();
+<!doctype html>   
+<html>   
+<head> 
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>Page title</title>   
+</head>   
+<body>   
+    <header id="header">  
+       <h1>Your page</h1>
+    </header>   
+  <?php
+    @session_start();
     if(isset($_POST['title'])) $title = $_POST['title']; 
     if(isset($_POST['text'])) $text = $_POST['text']; 
     if(isset($_POST['datetime'])) $datetime = $_POST['datetime']; 
@@ -61,12 +20,14 @@
     if ($text != null && $text != "") {       
     $data = array('login' => $_SESSION["session_login"], 'label' => true, 'title' => $title, 'text' => $text, 'datetime' => $datetime);
     $collection -> insert($data);  
+    //$_SESSION["session_datetime"] = $datetime;
     }
     $con -> close();
   ?>
-        
-
-            <h2>Your notes</h2>
+    
+    <div id ="main">
+    <article id = "article">    
+    <h2>Your notes</h2>
          <?php
          session_start();
          $con = new MongoClient();
@@ -79,15 +40,52 @@
                 echo "Note № ".$i."<br/>";
                 echo "Title:" . $document["title"]."<br/>";
                 echo "Text:" . $document["text"]."<br/>";
-                echo "Date:" . $document["datetime"] . "<p/>"."<br/>";
+                echo "Date:" . $document["datetime"];
+                echo
+                    "<table>"
+                    ."<tr>"
+                    ."<td>"
+                    ."<form method = 'post'  action = 'deleteNotes.php'>"
+                    ."<input hidden name='noteToDelete' value = ".$document['_id']."></input>"
+                    ."<input type = 'image'  width = '30' height = '30' img src='delete.png' ></input>"
+                    ."</form>"
+                    ."</td>"
+                    
+                    ."<td>" 
+                    ."<form method = 'post'  action = 'edit.php'>"
+                    ."<input hidden name='noteToEdit' value = ".$document['_id']."></input>"
+                    ."<input type = 'image' width = '30' height = '30' img src='edit.png'></input>"
+                    ."</form>"
+                    ."</td>"
+                    ."</tr>"
+                    ."</table>"."<br/>";  
                 $i++;
             }
-
           $con->close();
          ?>
-            
-            
         
+    </article>
+    <aside id="aside">   
         
-    </body>
-</html>
+             
+                
+        <?php 
+        @session_start(); 
+        echo "Hello, ".$_SESSION["session_login"]."!<p></p>";
+        ?>
+        
+        <p></p>
+        <form>
+        <input type="button" class = "button" value="Add note" onClick='location.href="newNote.html"'>
+        </form>
+       <p></p>
+       <form>
+        <input type="button" class = "button" value="Log out" onClick='location.href="form.html"'>
+        </form>
+    </aside>
+    </div>
+     
+   
+</body>   
+</html>   
+
